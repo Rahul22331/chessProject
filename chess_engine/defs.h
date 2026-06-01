@@ -5,6 +5,8 @@ typedef unsigned long long U64;
 constexpr const char* NAME = "Brave 1.0";
 constexpr int BRD_SQ_NUM = 120;
 
+constexpr int MAXGAMEMOVES = 2048;
+
 enum {EMPTY,wP,wN,wB,wR,wQ,wK,bP,bN,bB,bR,bQ,bK};
 
 enum {FILE_A,FILE_B,FILE_C,FILE_D,FILE_E,FILE_F,FILE_G,FILE_H,FILE_NONE};
@@ -26,20 +28,36 @@ enum {
 
 enum {FALSE,TRUE};
 
+enum {WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8};
+
+
+struct S_UNDO{
+    int move;
+    int castlePerem;
+    int enPas;
+    int fiftyMoves;
+    U64 posKey;
+};
+
 struct S_BOARD{
     int pieces[BRD_SQ_NUM]; //represent whole board
     U64 pawns[3];  //store pos of pawns
 
     int KingSq[2]; //white king square, black king square
-    int side; 
+    int side;
     int enPass;
     int fifityMoves;
     int ply;
     int hisply;
 
+    int castlePerm;
+
     U64 posKey;
+
     int pceNum[13]; // store the number of pices
     int bigPce[3];  // all pieces except pawns
     int majPce[3];  //Rooks and Queen
     int minPce[3]; // bishop, kinght
+
+    S_UNDO history[MAXGAMEMOVES];
 };
