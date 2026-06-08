@@ -1,2 +1,2 @@
-all :
-	g++ brave.cpp -o brave
+all:
+	g++ brave.cpp init.cpp -o brave

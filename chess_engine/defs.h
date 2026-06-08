@@ -61,3 +61,13 @@ struct S_BOARD{
 
     S_UNDO history[MAXGAMEMOVES];
 };
+
+// Macros
+#define FR2SQ(f,r) ((21+f) + (r*10))
+
+//Globals
+extern int Sq64toSq120[BRD_SQ_NUM];
+extern int Sq120toSq64[64];
+
+//Functions
+extern void AllInit();
