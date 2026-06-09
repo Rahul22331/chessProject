@@ -1,5 +1,28 @@
 #pragma once
 
+#define DEBUG
+
+#ifndef DEBUG
+
+#define ASSERT(n)
+
+#else
+
+#include <cstdio>
+#include <cstdlib>
+
+#define ASSERT(n)                                      \
+    if (!(n)) {                                        \
+        printf("%s - Failed\n", #n);                   \
+        printf("On %s\n", __DATE__);                   \
+        printf("At %s\n", __TIME__);                   \
+        printf("In File %s\n", __FILE__);              \
+        printf("At Line %d\n", __LINE__);              \
+        exit(1);                                       \
+    }
+
+#endif
+
 typedef unsigned long long U64;
 
 constexpr const char* NAME = "Brave 1.0";
@@ -60,6 +83,10 @@ struct S_BOARD{
     int minPce[3]; // bishop, kinght
 
     S_UNDO history[MAXGAMEMOVES];
+    // piece list
+    int pList[13][10];
+
+    //
 };
 
 // Macros
