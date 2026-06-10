@@ -1,2 +1,2 @@
 all:
-	g++ brave.cpp init.cpp -o brave
+	g++ brave.cpp init.cpp bitboards.cpp -o brave

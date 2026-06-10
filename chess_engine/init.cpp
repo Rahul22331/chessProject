@@ -23,7 +23,7 @@ void InitSq120to64(){
             sq = FR2SQ(f,r);
             Sq64toSq120[sq64] = sq;
             Sq120toSq64[sq] = sq64;
-            sq64++;
+            sq64++; 
         }
     }
 }

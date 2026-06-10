@@ -91,10 +91,13 @@ struct S_BOARD{
 
 // Macros
 #define FR2SQ(f,r) ((21+f) + (r*10))
-
+#define SQ64(sq) (Sq64toSq120[sq])
 //Globals
 extern int Sq64toSq120[BRD_SQ_NUM];
 extern int Sq120toSq64[64];
 
 //Functions
 extern void AllInit();
+
+//bitboards.cpp
+extern void PrintBitBoard(U64 bb);
